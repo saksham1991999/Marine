@@ -17,19 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.urls import path, include
-from core.models import Location
-from rest_framework import routers, serializers, viewsets
-
-# Serializers define the API representation.
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Location
-        fields = ["id", "lat", "long"]
-
-# ViewSets define the view behavior.
-class LocationViewSet(viewsets.ModelViewSet):
-    queryset = Location.objects.all()
-    serializer_class = LocationSerializer
+from core.views import LocationViewSet
+from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
