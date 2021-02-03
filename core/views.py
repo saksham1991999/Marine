@@ -32,7 +32,7 @@ class LocationViewSet(viewsets.ModelViewSet):
         except:
             return Response("Does not exist", status=status.HTTP_204_NO_CONTENT)
 
-    @action(detail=False)
+    @action(detail=False,  methods=['post'])
     def delete_custom(self, request):
         serializer_context = {
             'request': request,
