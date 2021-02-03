@@ -4,7 +4,8 @@ from django.db import models
 class Location(models.Model):
     lat = models.FloatField()
     long = models.FloatField()
-
+    satellite = models.BooleanField(default=False)
+    shipid = models.CharField(max_length=100, blank=True, null=True)
     class Meta:
         unique_together = ['lat', 'long']
 
